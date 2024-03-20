@@ -1,0 +1,171 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Lookie Lookie!</title>
+  <meta name="description" content="A website that learns to predict where you are looking at. Written in TensorFlow.js">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Source+Code+Pro" rel="stylesheet">
+  <link rel="stylesheet" href="clip/clip.css">
+  <link rel="stylesheet" href="normalize.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="entry">
+    <div class="eye_port eye_1" onclick="eyeTextShow(1)">
+        <span class="eye_text eye_text1">WHEN YOU WALK IN FRONT OF THE MIRROR</span>
+        <img class="eye eye_icon1" src="./img/entry-eye.png"/>
+    </div>
+    <div class="eye_port eye_2" onclick="eyeTextShow(2)">
+        <span class="eye_text eye_text2">YOU CAN FEEL THEM WATCHING YOU</span>
+        <img class="eye eye_icon2" src="./img/entry-eye.png"/>
+    </div>
+    <div class="eye_port eye_3" onclick="eyeTextShow(3)">
+        <span class="eye_text eye_text3">YOU CAN HEAR THEM WHISPERING</span>
+        <img class="eye eye_icon3" src="./img/entry-eye.png"/>
+    </div>
+    <div class="eye_port eye_4" onclick="eyeTextShow(4)">
+        <span class="eye_text eye_text4">THE MIRROR SHATTERS BEFORE YOUR EYES</span>
+        <img class="eye eye_icon4" src="./img/entry-eye.png"/>
+    </div>
+    <div class="eye_port eye_5" onclick="eyeTextShow(5)">
+        <span class="eye_text eye_text5">YOUR FACE DISAPPEARS</span>
+        <img class="eye eye_icon5" src="./img/entry-eye.png"/>
+    </div>
+    <div class="eye_port eye_6" onclick="eyeTextShow(6)">
+        <span class="eye_text eye_text6">REPLACED BY THE FIGURE OF THEM</span>
+        <img class="eye eye_icon6" src="./img/entry-eye.png"/>
+    </div>
+    <div class="eye_port eye_7" onclick="eyeTextShow(7)">
+        <span class="eye_text eye_text7">Whispering Eyes</span>
+        <img class="eye eye_icon7" src="./img/entry-eye.png"/>
+    </div>
+  </div>
+  <canvas id="overlay" width="780" height="520"></canvas>
+  <canvas id="eyes" width="50" height="25"></canvas>
+  <canvas id="heatMap"></canvas>
+
+  <audio id="audio-play" autoplay src="./audio/trim.C28E10D0-C8CB-4707-905D-9865FF1BCB7D.mp3" loop></audio>
+  <div class="bg">
+  </div>
+  <div class="toast"></div>
+  <div id="text-content"></div>
+  <video id="webcam" width="780" height="520" autoplay muted></video>
+  <div class="canvas-port">
+      <canvas class="canvas" id="canvas" width="780" height="520"></canvas>
+      <canvas class="po shard1" id="canvas1" width="780" height="520"></canvas>
+      <canvas class="po shard2" id="canvas2" width="780" height="520"></canvas>
+      <canvas class="po shard3" id="canvas3" width="780" height="520"></canvas>
+      <canvas class="po shard4" id="canvas4" width="780" height="520"></canvas>
+      <canvas class="po shard5" id="canvas5" width="780" height="520"></canvas>
+      <canvas class="po shard6" id="canvas6" width="780" height="520"></canvas>
+      <canvas class="po shard7" id="canvas7" width="780" height="520"></canvas>
+      <canvas class="po shard8" id="canvas8" width="780" height="520"></canvas>
+      <canvas class="po shard9" id="canvas9" width="780" height="520"></canvas>
+      <div class="video-show">
+          <canvas id="canvas1-img" width="312" height="156"></canvas>
+          <div class="video1-port">
+              <video id="video1" autoplay muted src="./video/video01.mp4" type="video/mp4" loop></video>
+          </div>
+          <svg class="svg1" width="312" height="156" version="1.1"
+              xmlns="http://www.w3.org/2000/svg">
+              <polygon points="0,0 234,0 312,52 234,104 0,156" fill="rgba(0, 0, 0, 0)" onclick="videoshow(1)"/>
+          </svg>
+
+          <canvas id="canvas2-img" width="234" height="156"></canvas>
+          <div class="video2-port">
+              <video id="video2" autoplay muted src="./video/video02.mp4" type="video/mp4" loop></video>
+          </div>
+          <svg class="svg2" width="234" height="156" version="1.1"
+              xmlns="http://www.w3.org/2000/svg">
+              <polygon points="0,0 234,0 156,156 0,104 78,52" fill="rgba(0, 0, 0, 0)" onclick="videoshow(2)"/>
+          </svg>
+
+          <canvas id="canvas3-img" width="390" height="156"></canvas>
+          <div class="video3-port">
+              <video id="video3" autoplay muted src="./video/video03.mp4" type="video/mp4" loop></video>
+          </div>
+          <svg class="svg3" width="390" height="156" version="1.1"
+              xmlns="http://www.w3.org/2000/svg">
+              <polygon points="78,0 0,156 156,104 234,156 390,104 390,0" fill="rgba(0, 0, 0, 0)" onclick="videoshow(3)"/>
+          </svg>
+
+          <canvas id="canvas4-img" width="234" height="260"></canvas>
+          <div class="video4-port">
+              <video id="video4" autoplay muted src="./video/video04.mp4" type="video/mp4" loop></video>
+          </div>
+          <svg class="svg4" width="234" height="260" version="1.1"
+              xmlns="http://www.w3.org/2000/svg">
+              <polygon points="0,52 234,0 234,156 156,208 78,208 0,260" fill="rgba(0, 0, 0, 0)" onclick="videoshow(4)"/>
+          </svg>
+
+          <canvas id="canvas5-img" width="312" height="312"></canvas>
+          <div class="video5-port">
+              <video id="video5" autoplay muted src="./video/video05.mp4" type="video/mp4" loop></video>
+          </div>
+          <svg class="svg5" width="312" height="312" version="1.1"
+              xmlns="http://www.w3.org/2000/svg">
+              <polygon points="0,0 0,260 156,312 312,208 156,52" fill="rgba(0, 0, 0, 0)" onclick="videoshow(5)"/>
+          </svg>
+
+          <canvas id="canvas6-img" width="390" height="208"></canvas>
+          <div class="video6-port">
+              <video id="video6" autoplay muted src="./video/video06.mp4" type="video/mp4" loop></video>
+          </div>
+          <svg class="svg6" width="390" height="208" version="1.1"
+              xmlns="http://www.w3.org/2000/svg">
+              <polygon points="0,52 156,0 234,52 390,0 390,156 312,208 234,156 156,208" fill="rgba(0, 0, 0, 0)" onclick="videoshow(6)"/>
+          </svg>
+
+          <canvas id="canvas7-img" width="468" height="260"></canvas>
+          <div class="video7-port">
+              <video id="video7" autoplay muted src="./video/video07.mp4" type="video/mp4" loop></video>
+          </div>
+          <svg class="svg7" width="468" height="260" version="1.1"
+              xmlns="http://www.w3.org/2000/svg">
+              <polygon points="0,104 78,52 156,52 234,0 234,104 390,156 468,208 390,260 0,260" fill="rgba(0, 0, 0, 0)" onclick="videoshow(7)"/>
+          </svg>
+
+          <canvas id="canvas8-img" width="390" height="260"></canvas>
+          <div class="video8-port">
+              <video id="video8" autoplay muted src="./video/video08.mp4" type="video/mp4" loop></video>
+          </div>
+          <svg class="svg8" width="390" height="260" version="1.1"
+              xmlns="http://www.w3.org/2000/svg">
+              <polygon points="0,156 234,0 312,52 390,0 390,104 234,260 0,260 78,208" fill="rgba(0, 0, 0, 0)" onclick="videoshow(8)"/>
+          </svg>
+
+          <canvas id="canvas9-img" width="156" height="156"></canvas>
+          <div class="video9-port">
+              <video id="video9" autoplay muted src="./video/video09.mp4" type="video/mp4" loop></video>
+          </div>
+          <svg class="svg9" width="156" height="156" version="1.1"
+              xmlns="http://www.w3.org/2000/svg">
+              <polygon points="0,156 156,0 156,156" fill="rgba(0, 0, 0, 0)" onclick="videoshow(9)"/>
+          </svg>
+      </div>
+  </div>
+
+  <div id="target"></div>
+
+
+  <script src="./js/jquery-3.3.1.min.js"></script>
+  <script src="./clip/clip.js"></script>
+  <script src="./data/dataset3.json"></script>
+  <script src="./data/model3.json"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.5.0"></script> -->
+  <script src="./js/tfjs.js"></script>
+  <script src="js/vendor/clmtrackr.js"></script>
+  <script src="js/globals.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/facetracker.js"></script>
+  <script src="js/mouse.js"></script>
+  <script src="js/dataset.js"></script>
+  <script src="js/training.js"></script>
+  <script src="js/heat.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

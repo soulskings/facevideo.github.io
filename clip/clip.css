@@ -408,30 +408,32 @@ body {
 .eye_2 {
     left: 534px;
     top: 60px;
+    display: none;
 }
 .eye_3 {
     left: 50px;
     top: 100px;
+    display: none;
 }
 .eye_4 {
     left: 274px;
     top: 465px;
+    display: none;
 }
 .eye_5 {
     left: 276px;
     top: 169px;
+    display: none;
 }
 .eye_6 {
     left: 738px;
     top: 179px;
+    display: none;
 }
 .eye_7 {
     left: 1054px;
     top: 85px;
-}
-.eye_8 {
-    left: 811px;
-    top: 718px;
+    display: none;
 }
 .eye {
     /* display: none; */

@@ -446,9 +446,14 @@ function eyeTextShow(index) {
     // } else {
     //     document.querySelector('.eye_icon' + (index + 1)).style.display = 'block'
     // }
-
+    if (index < 7) {
+        document.querySelector('.eye_' + (index + 1)).style.display = 'flex'
+    }
     document.querySelector('.eye_text' + index).style.opacity = '1'
     document.querySelector('.eye_icon' + index).style.opacity = '0'
+    setTimeout(() => {
+        document.querySelector('.eye_icon' + index).style.display = 'none'
+    }, 100)
     if (index === 7) {
         document.querySelector('.entry').style.display = 'none'
         // 执行主逻辑

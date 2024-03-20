@@ -1,0 +1,459 @@
+@font-face {
+    font-family: "ConsoBold";
+    src: url('./font/Conso-Bold.ttf');
+}
+@font-face {
+    font-family: "ConsoThin";
+    src: url('./font/Conso-Thin.ttf');
+}
+body {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    background: black;
+}
+#webcam {
+    width: 780px;
+    margin-top: 140px;
+    position: absolute;
+    visibility: hidden;
+}
+.canvas-port {
+    width: 780px;
+    height: 520px;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 140px;
+}
+.shard1 {
+    /* display: none; */
+    left: -350px;
+    top: -10px;
+    clip-path: polygon(0% 0%, 30% 0%, 40% 10%, 30% 20%, 0% 30%)
+}
+.shard2 {
+    /* display: none; */
+    left: 0px;
+    top: -20px;
+    clip-path: polygon(30% 0%, 60% 0%, 50% 30%, 30% 20%, 40% 10%)
+}
+.shard3 {
+    /* display: none; */
+    left: 246px;
+    top: -30px;
+    clip-path: polygon(60% 0%, 100% 0%, 100% 20%, 80% 30%, 70% 20%, 50% 30%)
+}
+.shard4 {
+    /* display: none; */
+    left: -90px;
+    top: 45px;
+    clip-path: polygon(0% 30%, 30% 20%, 30% 50%, 20% 60%, 10% 60%, 0% 70%)
+}
+.shard5 {
+    /* display: none; */
+    left: 0px;
+    top: 43px;
+    clip-path: polygon(30% 20%, 50% 30%, 70% 60%, 50% 80%, 30% 70%);
+}
+.shard6 {
+    /* display: none; */
+    left: 374px;
+    top: 30px;
+    clip-path: polygon(50% 30%, 70% 20%, 80% 30%, 100% 20%, 100% 50%, 90% 60%, 80% 50%, 70% 60%);
+}
+.shard7 {
+    /* display: none; */
+    left: -351px;
+    top: 262px;
+    clip-path: polygon(0% 70%, 10% 60%, 20% 60%, 30% 50%, 30% 70%, 50% 80%, 60% 90%, 50% 100%, 0% 100%);
+    z-index: 1000;
+    /* transform: rotate(-10deg); */
+}
+.shard8 {
+    /* display: none; */
+    left: 378px;
+    top: 156px;
+    clip-path: polygon(50% 100%, 60% 90%, 50% 80%, 80% 50%, 90% 60%, 100% 50%, 100% 70%, 80% 100%);
+    /* transform: rotate(-10deg); */
+}
+.shard9 {
+    /* display: none; */
+    left: -259px;
+    top: 196px;
+    clip-path: polygon(80% 100%, 100% 70%, 100% 100%);
+    /* transform: rotate(10deg); */
+}
+.canvas {
+    display: none;
+}
+.po {
+    position: absolute;
+    transition: all 0.5s ease-in-out;
+}
+#canvas1-img {
+    position: absolute;
+    z-index: 999;
+    left: -350px;
+    top: -10px;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0);
+}
+.video1-port {
+    position: absolute;
+    width: 312px;
+    height: 156px;
+    z-index: 998;
+    left: -350px;
+    top: -10px;
+    overflow: hidden;
+}
+#video1 {
+    width: 312px;
+}
+.svg1 {
+    position: absolute;
+    z-index: 1000;
+    left: -350px;
+    top: -10px;
+    cursor: pointer;
+}
+
+.video2-port {
+    position: absolute;
+    width: 234px;
+    height: 156px;
+    z-index: 998;
+    left: 234px;
+    top: -20px;
+    overflow: hidden;
+}
+#video2 {
+    width: 234px;
+}
+#canvas2-img {
+    position: absolute;
+    z-index: 999;
+    left: 234px;
+    top: -20px;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0);
+}
+.svg2 {
+    position: absolute;
+    z-index: 1000;
+    left: 234px;
+    top: -20px;
+    cursor: pointer;
+}
+
+.video3-port {
+    position: absolute;
+    width: 390px;
+    height: 156px;
+    z-index: 998;
+    left: 637px;
+    top: -30px;
+    overflow: hidden;
+}
+#video3 {
+    width: 390px;
+}
+#canvas3-img {
+    position: absolute;
+    z-index: 999;
+    left: 637px;
+    top: -30px;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0);
+}
+.svg3 {
+    position: absolute;
+    z-index: 1000;
+    left: 637px;
+    top: -30px;
+    cursor: pointer;
+}
+
+.video4-port {
+    position: absolute;
+    width: 234px;
+    height: 260px;
+    z-index: 998;
+    left: -90px;
+    top: 148px;
+    overflow: hidden;
+}
+#video4 {
+    height: 260px;
+}
+#canvas4-img {
+    position: absolute;
+    z-index: 999;
+    left: -90px;
+    top: 148px;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0);
+}
+.svg4 {
+    position: absolute;
+    z-index: 1000;
+    left: -90px;
+    top: 148px;
+    cursor: pointer;
+}
+
+.video5-port {
+    position: absolute;
+    width: 312px;
+    height: 312px;
+    z-index: 1003;
+    left: 234px;
+    top: 146px;
+    overflow: hidden;
+}
+#video5 {
+    height: 312px;
+}
+#canvas5-img {
+    position: absolute;
+    z-index: 1004;
+    left: 234px;
+    top: 146px;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0);
+}
+.svg5 {
+    position: absolute;
+    z-index: 1005;
+    left: 234px;
+    top: 146px;
+    cursor: pointer;
+}
+
+.video6-port {
+    position: absolute;
+    width: 390px;
+    height: 208px;
+    z-index: 998;
+    left: 764px;
+    top: 134px;
+    overflow: hidden;
+}
+#video6 {
+    width: 390px;
+}
+#canvas6-img {
+    position: absolute;
+    z-index: 999;
+    left: 764px;
+    top: 134px;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0);
+}
+.svg6 {
+    position: absolute;
+    z-index: 1000;
+    left: 764px;
+    top: 134px;
+    cursor: pointer;
+}
+
+.video7-port {
+    position: absolute;
+    width: 468px;
+    height: 260px;
+    z-index: 1001;
+    left: -349px;
+    top: 522px;
+    overflow: hidden;
+}
+#video7 {
+    width: 468px;
+}
+#canvas7-img {
+    position: absolute;
+    z-index: 1002;
+    left: -349px;
+    top: 522px;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0);
+}
+.svg7 {
+    position: absolute;
+    z-index: 1003;
+    left: -349px;
+    top: 522px;
+    cursor: pointer;
+}
+
+.video8-port {
+    position: absolute;
+    width: 390px;
+    height: 260px;
+    z-index: 998;
+    left: 768px;
+    top: 416px;
+    overflow: hidden;
+}
+#video8 {
+    width: 390px;
+}
+#canvas8-img {
+    position: absolute;
+    z-index: 999;
+    left: 768px;
+    top: 416px;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0);
+}
+.svg8 {
+    position: absolute;
+    z-index: 1000;
+    left: 768px;
+    top: 416px;
+    cursor: pointer;
+}
+
+.video9-port {
+    position: absolute;
+    width: 156px;
+    height: 156px;
+    z-index: 998;
+    left: 365px;
+    top: 560px;
+    overflow: hidden;
+}
+#video9 {
+    height: 156px;
+}
+#canvas9-img {
+    position: absolute;
+    z-index: 999;
+    left: 365px;
+    top: 560px;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0);
+}
+.svg9 {
+    position: absolute;
+    z-index: 1000;
+    left: 365px;
+    top: 560px;
+    cursor: pointer;
+}
+
+#text-content {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    color: #fff;
+    font-size: 36px;
+    font-family: ConsoThin;
+}
+
+.toast {
+    display: none;
+    justify-content: center;
+    position: fixed;
+    width: 100vw;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0);
+    z-index: 1100;
+    font-size: 60px;
+    color: red;
+    padding: 10px;
+    border-radius: 10px;
+    font-family: ConsoBold;
+    font-weight: bold;
+    transition: all 0.5s ease-in-out;
+    opacity: 0;
+}
+.bg {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+#audio-play {
+    position: absolute;
+    visibility: hidden;
+}
+.entry {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    background: #000000;
+}
+.eye_port {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+.eye_1 {
+    left: 760px;
+    top: 380px;
+}
+.eye_2 {
+    left: 534px;
+    top: 60px;
+}
+.eye_3 {
+    left: 50px;
+    top: 100px;
+}
+.eye_4 {
+    left: 274px;
+    top: 465px;
+}
+.eye_5 {
+    left: 276px;
+    top: 169px;
+}
+.eye_6 {
+    left: 738px;
+    top: 179px;
+}
+.eye_7 {
+    left: 1054px;
+    top: 85px;
+}
+.eye_8 {
+    left: 811px;
+    top: 718px;
+}
+.eye {
+    /* display: none; */
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+    opacity: 0;
+}
+.eye_text {
+    /* display: none; */
+    padding: 10px;
+    font-family: ConsoThin;
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    font-size: 18px;
+    transition: all 0.5s ease-in-out;
+    opacity: 0;
+}
+.eye_1 {
+    display: flex;
+}
+.eye_1 .eye {
+    display: block;
+    opacity: 1;
+}
